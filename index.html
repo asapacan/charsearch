@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>
+      Charsearch
+    </title>
+    <style>
+      @font-face {
+        font-family: "unifont";
+        src: url("unifont-12.0.01.woff2");
+      }
+      @font-face {
+        font-family: "unifont-upper";
+        src: url("unifont_upper-12.0.01.woff2");
+        unicode-range: U+10000-10FFFF;
+      }
+      body, input {
+        font-family: "unifont", "unifont-upper"
+      }
+    </style>
+  </head>
+  <body>
+    <script src=//unpkg.com/mithril></script>
+    <script src=//unpkg.com/bss></script>
+    <script src=//unpkg.com/patchinko/immutable.js></script>
+    <script type=module src=./deps.js></script>
+    <script type=module src=./app.js></script>
+  </body>
+</html>
