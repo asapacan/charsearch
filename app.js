@@ -80,6 +80,8 @@ m.mount(document.body, {
           m('p', 'Then start typing in the ', m('a[href=#search]', 'search input'), ' to filter results.'),
 
           m('p', 'For example, if I load ', m('a[href=https://www.unicode.org/Public/12.0.0/ucdxml/ucd.nounihan.grouped.zip]', 'ucd.nouhinan.grouped.xml'), ', I can then select Latin_1_Sup, Latin_1_Sup, Latin_Ext_A, Latin_Ext_B groups. When I search for \'acute\', I should see the following characters: ĆćĹĺŃńŐőŔŕŚśŰűŹźǗǘ´ÁÉÍÓÚÝáéíóúý. By using tab navigation I can then select the desired character and hit ', m('kbd', 'Ctrl'), ' + ', m('kbd', 'C'), ' to copy it to the clipboard.'),
+
+          m('p', 'This application was developed by ', m('a[href=https://github.com/barneycarroll]', 'Barney Carroll'), '. The font is ', m('a[href=http://unifoundry.com/unifont/index.html]', 'GNU Unifont'), ', kindly converted to WOFF format by ', m('a[href=https://shkspr.mobi/blog/2019/04/banish-the-%EF%BF%BD-with-unifont/]', ' Terence Eden'), '.'),
         ]),
       ]),
 
