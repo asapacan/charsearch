@@ -1,10 +1,13 @@
 <!doctype html>
-<html>
+<html dir=ltr lang=en-UK>
   <head>
     <meta charset=utf-8>
     <title>
       Charsearch
     </title>
+    <meta name=author content="Barney Carroll">
+    <meta name=description content="A unicode character search application">
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <style>
       @font-face {
         font-family: "unifont";
@@ -20,7 +23,15 @@
       }
     </style>
   </head>
-  <body>
+  <body style=margin:1em>
+    <h1>Charsearch</h1>
+    <p>A unicode character search application.</p>
+    <noscript>
+      <p>Requires Javascript to run, which appears not to be working.</p>
+    </noscript>
+    <script>
+      document.writeln('<p>Loading...</p>')
+    </script>
     <script src=//unpkg.com/mithril></script>
     <script src=//unpkg.com/bss></script>
     <script src=//unpkg.com/patchinko/immutable.js></script>
