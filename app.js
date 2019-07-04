@@ -28,7 +28,7 @@ m.mount(document.body, {
         height: 0;
         left: 0;
         top: 0;
-        transition: .3s ease-in-out;
+        transition: .4s ease-in-out;
       `, {
         oncreate: ({dom}) => {
           model.progress = dom
@@ -38,9 +38,9 @@ m.mount(document.body, {
       m('header' + css`
         display: flex;
         justify-content: space-between;
-        margin: -1em -1em 0 0;
+        margin: -.75em -.75em 0 0;
       `,
-        m('h1' + css`padding: 1em 1em 0 0`, 'Charsearch'),
+        m('h1' + css`padding: .5em .5em 0 0`, 'Charsearch'),
 
         [
           ['🔍', '#query', 'Search by description'],
@@ -52,7 +52,7 @@ m.mount(document.body, {
           m('a' + css`
             text-align: center;
             text-decoration: none;
-            padding: 1em;
+            padding: .5em;
           `, {
             title,
             href, 
@@ -60,6 +60,8 @@ m.mount(document.body, {
           }),
         ),
       ),
+
+      m('br'),
 
       m('main' + css`
       `,
@@ -70,10 +72,13 @@ m.mount(document.body, {
           padding: .5em;
           box-sizing: border-box;
         `, {
-          placeholder: `Describe the character you're searching for`,
+          placeholder: `Describe a character`,
           oninput: query,
           value: model.input,
         }),
+
+        m('br'),
+        m('br'),
 
           model.results.length === 0
         ? 
@@ -85,6 +90,7 @@ m.mount(document.body, {
         : [
             `${ model.results.length } results:`,
 
+            m('br'),
             m('br'),
 
             m('#Characters' + css`
@@ -133,18 +139,6 @@ function search(){
     model.results = model.characters.filter(({na1}) => 
       na1 && na1.toLowerCase().includes(query)
     )
-}
-
-function parse(source){
-  const xml = (new DOMParser).parseFromString(
-    source, 'application/xml',
-  )
-
-  if(xml.querySelector('parsererror'))
-    alert('Parser error: the XML appears to be malformed.')
-  
-  else
-    return xml
 }
 
 function debounce(wait = 100, func){

@@ -15,20 +15,20 @@ export default e => {
 }
 
 function search(){
-  model.query = model.input
+  const query = model.query = model.input
 
   const [exact, partial] = [
-    RegExp('\\b' + model.query + '\\b', 'i'),
-    RegExp(        model.query,         'i'),
+    RegExp('\\b' + query + '\\b', 'i'),
+    RegExp(        query,         'i'),
   ]
   
   model.results = (
-      model.query.length === 0
+      query.length === 0
     ?
       []
     :
       model.characters.filter(
-          model.query.length === 1
+          query.length === 1
         ?
           ({na1}) =>   exact.test(na1)
         :
