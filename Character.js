@@ -1,29 +1,36 @@
 import {m, css} from './deps.js'
+import model from './model.js'
+
+const select = character => ({target}) => {
+  const selection = getSelection()
+        
+  if(selection.rangeCount > 0)
+    selection.removeAllRanges()
+  
+  const range = document.createRange()
+
+  range.selectNode(target)
+
+  selection.addRange(range)
+
+  model.selection = character
+}
 
 export default {
-  view: ({attrs: {character}}) =>
+  view: ({attrs: {character}}) => 
     m('.Character' + css`
       position: relative;
-      display: inline-block;
       height: 3em;
       width: 3em;
-      border: 1px solid;
-      margin: -1px 0 0 -1px;
+      flex-grow: 1;
+      border: solid;
+      border-width: 0 1px 1px 0; 
     `, {
       title: character.na1 + '\n\n' + character.cp,
       tabIndex: '0',
-      onfocus: ({target}) => {
-        const selection = getSelection()
-        
-        if(selection.rangeCount > 0)
-          selection.removeAllRanges()
-        
-        const range = document.createRange()
-
-        range.selectNode(target)
-
-        selection.addRange(range)
-      },
+      onclick:      select(character),
+      onfocus:      select(character),
+      onmouseenter: select(character),
     },
       m('span.Glyph' + css`
         position: absolute;
@@ -36,5 +43,5 @@ export default {
           parseInt(character.cp, 16)
         ) 
       )
-    )
+    ),
 }

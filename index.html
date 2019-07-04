@@ -18,12 +18,18 @@
         src: url("unifont_upper-12.0.01.woff2");
         unicode-range: U+10000-10FFFF;
       }
-      body, input {
-        font-family: "unifont", "unifont-upper"
+      body {
+        font-family: "unifont", "unifont-upper";
+        font-size: 1.5em;
+        margin: 0;
+      }
+      h1 {
+        font-size: 1em;
+        margin: 0;
       }
     </style>
   </head>
-  <body style=margin:1em>
+  <body style="margin:2em 2em 4em">
     <h1>Charsearch</h1>
     <p>A unicode character search application.</p>
     <noscript>
@@ -32,9 +38,8 @@
     <script>
       document.writeln('<p>Loading...</p>')
     </script>
-    <script src=//unpkg.com/mithril></script>
-    <script src=//unpkg.com/bss></script>
-    <script src=//unpkg.com/patchinko/immutable.js></script>
+    <script src=./deps/mithril.js></script>
+    <script src=./deps/bss.js></script>
     <script type=module src=./deps.js></script>
     <script type=module src=./app.js></script>
   </body>

@@ -1,6 +1,6 @@
 import {m, css} from './deps.js'
 
-import viewOf from './viewOf.js'
+import {viewOf} from './utils.js'
 
 export default ({attrs: {collapsed}, container, animating}) => ({
   oncreate: async () => {
@@ -8,6 +8,7 @@ export default ({attrs: {collapsed}, container, animating}) => ({
 
     m.redraw()
   },
+  
   view: v =>
     m('.Collapser', 
       viewOf(v)({
