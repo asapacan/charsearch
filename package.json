@@ -1,0 +1,35 @@
+{
+  "name": "charsearch",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A unicode character search application",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asapacan/charsearch.git"
+  },
+  "keywords": [
+    "ascii",
+    "unicode",
+    "character",
+    "search",
+    "app"
+  ],
+  "author": "Barney <barney.carroll@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asapacan/charsearch/issues"
+  },
+  "homepage": "https://github.com/asapacan/charsearch#readme",
+  "devDependencies": {
+    "vite": "^2.9.13"
+  },
+  "dependencies": {
+    "bss": "^1.6.4",
+    "mithril": "^2.2.2"
+  }
+}

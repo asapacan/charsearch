@@ -1,4 +1,5 @@
-import {m, css} from './deps.js'
+import m from 'mithril'
+import css from 'bss'
 
 import model from './model.js'
 
@@ -6,11 +7,11 @@ let resolution
 
 export default e => {
   model.input = e.target.value
-  
+
   clearTimeout(resolution)
-  
+
   resolution = setTimeout(search, model.throttle)
-  
+
   feedback()
 }
 
@@ -21,7 +22,7 @@ function search(){
     RegExp('\\b' + query + '\\b', 'i'),
     RegExp(        query,         'i'),
   ]
-  
+
   model.results = (
       query.length === 0
     ?
@@ -54,10 +55,10 @@ function feedback(){
 
   // Stop animation
   progress.classList.remove(moving)
-  
+
   // Force reflow
   void progress.offsetWidth
-  
+
   // Start animation
   progress.classList.add(visible, moving)
 

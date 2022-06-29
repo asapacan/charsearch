@@ -1,10 +1,11 @@
 export default {
-  selection: undefined,
+  selection : undefined,
   characters: [],
-  results: [],
-  loading: true,
-  input: '',
-  query: '',
-  throttle: 500,
-  progress: undefined,
+  results   : [],
+  loading   : true,
+  input     : '',
+  query     : '',
+  throttle  : 500,
+  progress  : undefined,
+  copied    : undefined,
 }
