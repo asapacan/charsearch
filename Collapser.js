@@ -1,51 +1,54 @@
-import {m, css} from './deps.js'
+import m from 'mithril'
+import css from 'bss'
 
 import {viewOf} from './utils.js'
 
 export default ({attrs: {collapsed}, container, animating}) => ({
-  oncreate: async () => {
+  oncreate: async ({dom}) => {
     await new Promise(requestAnimationFrame)
+
+    void dom.clientWidth
 
     m.redraw()
   },
-  
+
   view: v =>
-    m('.Collapser', 
+    m('.Collapser',
       viewOf(v)({
-        toggle: children => 
+        toggle: children =>
           m('.Toggle[tabIndex=0]', {
-            onclick: () => {
+            onclick(){
               animating = true
               collapsed = !collapsed
-            }, 
+            },
           },
             children,
           ),
-        
-        indicator: () => 
+
+        indicator: () =>
           m('span.Toggle' + css`
-            display: inline-block;
+            display   : inline-block;
             transition: transform .3s ease-in-out;
-            transform: rotate(${ collapsed ? 180 : 0 }deg);
+          ` + css`
+            transform : rotate(${ collapsed ? 180 : 0 }deg);
           `, '^'),
 
         contents: children =>
           m('.Contents' + css`
             transition: height .3s ease-in-out;
-            overflow: hidden;
-            height: ${ 
+            overflow  : hidden;
+          ` + css`
+            height    : ${
               collapsed ? 0 : container && container.dom.offsetHeight + 'px'
-            }
+            };
           `, {
-            style: !collapsed && !animating && 'height: auto', 
-            ontransitionend : ({target}) => {
+            style: !collapsed && !animating && 'height: auto',
+            ontransitionend(){
               animating = false
             },
           },
-            container = 
-              m('.Container', {
-
-              }, children),
+            container =
+              m('.Container', children),
           ),
       })
     )
