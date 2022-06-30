@@ -4,7 +4,6 @@ import css from 'bss'
 import model from './model.js'
 
 import Character from './Character.js'
-import Differ from './Differ.js'
 
 import query from './query.js'
 
